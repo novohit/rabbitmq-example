@@ -17,11 +17,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitDirectConfig {
 
-    public static final String DIRECT_QUEUE_0 = "my_queue_0";
+    public static final String DIRECT_QUEUE_0 = "direct_queue_0";
 
-    public static final String DIRECT_QUEUE_1 = "my_queue_1";
+    public static final String DIRECT_QUEUE_1 = "direct_queue_1";
 
-    public static final String DIRECT_EXCHANGE_NAME = "my_exchange";
+    public static final String DIRECT_EXCHANGE_NAME = "direct_exchange";
 
     @Bean
     public Queue queue0() {

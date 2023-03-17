@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="811675f8-97a3-4fa8-9d2b-98a2b06f1a84" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wyu/ConsumerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wyu/config/RabbitConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wyu/consumer/MsgConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/wyu/producer/ProducerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wyu/config/RabbitFanoutConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/wyu/consumer/FanoutMsgConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyu/config/RabbitDirectConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wyu/config/RabbitDirectConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyu/consumer/MsgConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wyu/consumer/DirectMsgConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/wyu/producer/ProducerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wyu/producer/ProducerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wyu/config/RabbitConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/wyu/consumer/MsgConsumer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wyu/producer/ProducerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wyu/producer/ProducerTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +53,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
@@ -56,6 +65,7 @@
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
     "last_opened_file_path": "E:/Project/code/rabbitmq-example/rabbitmq-publish-subscribe/src/main/java",
+    "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "configurable.group.editor",
     "vue.rearranger.settings.migration": "true"
   }
@@ -66,7 +76,7 @@
       <recent name="E:\Project\code\rabbitmq-example\rabbitmq-publish-subscribe\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProducerTest.sendMsgTest">
+  <component name="RunManager" selected="JUnit.ProducerTest.sendMsgToFanoutExchangeTest">
     <configuration name="ProducerTest.sendMsgTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rabbitmq-publish-subscribe" />
       <extension name="coverage">
@@ -78,6 +88,22 @@
       <option name="PACKAGE_NAME" value="com.wyu.producer" />
       <option name="MAIN_CLASS_NAME" value="com.wyu.producer.ProducerTest" />
       <option name="METHOD_NAME" value="sendMsgTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProducerTest.sendMsgToFanoutExchangeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rabbitmq-publish-subscribe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wyu.producer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.wyu.producer" />
+      <option name="MAIN_CLASS_NAME" value="com.wyu.producer.ProducerTest" />
+      <option name="METHOD_NAME" value="sendMsgToFanoutExchangeTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -98,8 +124,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ProducerTest.sendMsgTest" />
+        <item itemvalue="JUnit.ProducerTest.sendMsgToFanoutExchangeTest" />
         <item itemvalue="Spring Boot.ConsumerApplication" />
+        <item itemvalue="JUnit.ProducerTest.sendMsgTest" />
       </list>
     </recent_temporary>
   </component>
@@ -111,7 +138,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679064449805</updated>
-      <workItem from="1679064451324" duration="1325000" />
+      <workItem from="1679064451324" duration="2653000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,7 @@
 package com.wyu.producer;
 
 import com.wyu.config.RabbitDirectConfig;
+import com.wyu.config.RabbitFanoutConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,10 @@ public class ProducerTest {
         // 带上routing_key发送消息到交换机
         this.rabbitTemplate.convertAndSend(RabbitDirectConfig.DIRECT_EXCHANGE_NAME, RabbitDirectConfig.DIRECT_QUEUE_0, "消息发给队列0");
         this.rabbitTemplate.convertAndSend(RabbitDirectConfig.DIRECT_EXCHANGE_NAME, RabbitDirectConfig.DIRECT_QUEUE_1, "消息发给队列1");
+    }
+
+    @Test
+    void sendMsgToFanoutExchangeTest() {
+        this.rabbitTemplate.convertAndSend(RabbitFanoutConfig.FANOUT_EXCHANGE_NAME, null, "hello fanout");
     }
 }

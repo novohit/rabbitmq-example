@@ -16,19 +16,19 @@ import java.io.IOException;
  */
 @Component
 @Slf4j
-public class MsgConsumer {
+public class DirectMsgConsumer {
 
     @RabbitListener(queues = RabbitDirectConfig.DIRECT_QUEUE_0)
     public void handleMsg1(Message message, Channel channel) throws IOException {
         log.info("consumer1 msg:[{}] thread:[{}]", message.getPayload(), Thread.currentThread().getName());
         // 手动ack
-        channel.basicAck(((Long) message.getHeaders().get(AmqpHeaders.DELIVERY_TAG)), false);
+        //channel.basicAck(((Long) message.getHeaders().get(AmqpHeaders.DELIVERY_TAG)), false);
     }
 
 
     @RabbitListener(queues = RabbitDirectConfig.DIRECT_QUEUE_1)
     public void handleMsg2(Message message, Channel channel) throws IOException {
         log.info("consumer2 msg:[{}] thread:[{}]", message.getPayload(), Thread.currentThread().getName());
-        channel.basicAck(((Long) message.getHeaders().get(AmqpHeaders.DELIVERY_TAG)), false);
+        //channel.basicAck(((Long) message.getHeaders().get(AmqpHeaders.DELIVERY_TAG)), false);
     }
 }
