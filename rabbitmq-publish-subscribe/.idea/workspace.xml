@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="811675f8-97a3-4fa8-9d2b-98a2b06f1a84" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wyu/config/RabbitFanoutConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/wyu/consumer/FanoutMsgConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyu/config/RabbitDirectConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wyu/config/RabbitDirectConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wyu/consumer/MsgConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/wyu/consumer/DirectMsgConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/wyu/producer/ProducerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/wyu/producer/ProducerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/wyu/config/RabbitConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/wyu/consumer/MsgConsumer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/wyu/producer/ProducerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/wyu/producer/ProducerTest.class" afterDir="false" />
-    </list>
+    <list default="true" id="811675f8-97a3-4fa8-9d2b-98a2b06f1a84" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,12 +127,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679064449805</updated>
-      <workItem from="1679064451324" duration="2653000" />
+      <workItem from="1679064451324" duration="3988000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
