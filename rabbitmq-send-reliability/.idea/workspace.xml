@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8bdb6dd1-7a5f-487f-ab11-f98cb41a3ad5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/by-tx/src/main/java/com/wyu/bytx/config/RabbitDirectConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/by-tx/src/main/java/com/wyu/bytx/controller/SendController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/by-tx/src/main/java/com/wyu/bytx/service/MsgSendService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/by-confirm/src/main/java/com/wyu/byconfirm/config/RabbitDirectConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/by-confirm/src/main/java/com/wyu/byconfirm/controller/SendController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/by-confirm/src/main/java/com/wyu/byconfirm/service/MsgSendService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +34,7 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="D:/DevTools/apache-maven-3.6.0" />
+        <option name="useMavenConfig" value="true" />
         <option name="userSettingsFile" value="D:\DevTools\apache-maven-3.6.0\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
@@ -46,6 +47,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.format.on.save.advertiser.fired": "true",
@@ -54,19 +59,36 @@
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
     "jdk.selected.JAVA_MODULE": "11",
+    "last_opened_file_path": "E:/Project/code/rabbitmq-example/rabbitmq-send-reliability/by-confirm/src/main/java/com/wyu/byconfirm",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.1546875",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "configurable.group.editor",
+    "spring.configuration.checksum": "e4c167847f3661db16d87dfa6ba6c202",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Project\code\rabbitmq-example\rabbitmq-send-reliability\by-confirm\src\main\java\com\wyu\byconfirm" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Project\code\rabbitmq-example\rabbitmq-send-reliability\" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.wyu.byconfirm.config" />
       <recent name="com.wyu.bytx.config" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ByConfirmApplication">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="rabbitmq-send-reliability" />
       <working_directory value="$PROJECT_DIR$" />
@@ -86,7 +108,18 @@
       <framework value="gotest" />
       <method v="2" />
     </configuration>
+    <configuration name="ByConfirmApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="by-confirm" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wyu.byconfirm.ByConfirmApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ByTxApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="by-tx" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.wyu.bytx.ByTxApplication" />
       <method v="2">
@@ -103,6 +136,10 @@
       <option name="showConsole" value="true" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Spring Boot.ByConfirmApplication" />
+      <item itemvalue="Spring Boot.ByTxApplication" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -112,7 +149,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679200470501</updated>
-      <workItem from="1679200471871" duration="485000" />
+      <workItem from="1679200471871" duration="3696000" />
+      <workItem from="1679208349769" duration="2476000" />
     </task>
     <servers />
   </component>
