@@ -30,6 +30,5 @@ public class MsgSendService {
         //this.rabbitTemplate.convertAndSend(RabbitDirectConfig.DIRECT_EXCHANGE_NAME, "xxx", "hello", new CorrelationData());
         // 无法达到交换机
         //this.rabbitTemplate.convertAndSend("xxx", RabbitDirectConfig.DIRECT_QUEUE_0, "hello", new CorrelationData());
-        //int i = 1 / 0;
     }
 }

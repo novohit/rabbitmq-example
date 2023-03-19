@@ -5,8 +5,12 @@ import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.retry.support.RetryTemplate;
+
+import javax.annotation.PostConstruct;
 
 /**
  * DirectExchange 的路由策略是将消息队列绑定到一个 DirectExchange 上
@@ -56,17 +60,57 @@ public class RabbitDirectConfig {
                 .with(DIRECT_QUEUE_0); // 设置routing_key 这里直接用队列名字
     }
 
-    @Bean
-    public RabbitTemplate rabbitTemplate(ConnectionFactory factory) {
-        RabbitTemplate rabbitTemplate = new RabbitTemplate(factory);
-        /**
-         * 注意如果自己new RabbitTemplate要设置setMandatory(true) 否则无法触发MessageReturn
-         * Mandatory为true时,消息通过交换器无法匹配到队列会返回给生产者
-         * 并触发MessageReturn
-         * 为false时,匹配不到会直接被丢弃
-         */
-        rabbitTemplate.setMandatory(true);
-        // 设置消息发送确认回调函数
+    /**
+     * 自己创建bean的话 properties文件中rabbitmq的配置会失效
+     * 因为配置文件里的配置是用于SpringBoot自动装配的 并不会应用在我们自己创建的bean上面
+     * 可以debug看出来
+     *
+     * @param factory
+     * @return
+     */
+//    @Bean
+//    public RabbitTemplate rabbitTemplate(ConnectionFactory factory) {
+//        RabbitTemplate rabbitTemplate = new RabbitTemplate(factory);
+//        /**
+//         * 注意如果自己new RabbitTemplate要设置setMandatory(true) 否则无法触发MessageReturn
+//         * Mandatory为true时,消息通过交换器无法匹配到队列会返回给生产者
+//         * 并触发MessageReturn
+//         * 为false时,匹配不到会直接被丢弃
+//         */
+//        rabbitTemplate.setMandatory(true);
+//        // 设置消息发送确认回调函数
+//        rabbitTemplate.setConfirmCallback(new RabbitTemplate.ConfirmCallback() {
+//            @Override
+//            public void confirm(CorrelationData correlationData, boolean ack, String cause) {
+//                if (ack) {
+//                    log.info("correlation_id:[{}],消息成功到达交换机", correlationData.getId());
+//                } else {
+//                    log.error("correlation_id:[{}],消息未到达交换机,cause:[{}]", correlationData.getId(), cause);
+//                    // TODO 保证了消息发送的可靠性，发送失败如果不是代码问题，可以在这里处理失败逻辑
+//                }
+//            }
+//        });
+//        // 设置消息发送失败回调函数
+//        rabbitTemplate.setReturnsCallback(new RabbitTemplate.ReturnsCallback() {
+//            @Override
+//            public void returnedMessage(ReturnedMessage returned) {
+//                log.error("data:[{}]", returned);
+//                Message message = returned.getMessage();
+//                String correlationId = message.getMessageProperties().getHeader("spring_returned_message_correlation");
+//                log.error("correlation_id:[{}],消息未到达队列,message:[{}]", correlationId, new String(message.getBody()));
+//            }
+//        });
+//        return rabbitTemplate;
+//    }
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
+    /**
+     * 解决方案：我们可以在SpringBoot提供的Template上追加配置
+     */
+    @PostConstruct
+    public void initRabbitTemplate() {
         rabbitTemplate.setConfirmCallback(new RabbitTemplate.ConfirmCallback() {
             @Override
             public void confirm(CorrelationData correlationData, boolean ack, String cause) {
@@ -88,6 +132,5 @@ public class RabbitDirectConfig {
                 log.error("correlation_id:[{}],消息未到达队列,message:[{}]", correlationId, new String(message.getBody()));
             }
         });
-        return rabbitTemplate;
     }
 }
