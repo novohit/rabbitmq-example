@@ -1,11 +1,16 @@
 package com.wyu.manualack.service;
 
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.GetResponse;
 import com.wyu.manualack.config.RabbitDirectConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
 
 /**
  * @author novo
@@ -40,5 +45,26 @@ public class MsgSendService {
         assert o != null;
         log.info(o.toString());
         return o;
+    }
+
+    /**
+     * 拉模式的手动ack SpringBoot没有封装 需要用原始的方法
+     */
+    public void pullManual() {
+        Channel channel = rabbitTemplate.getConnectionFactory().createConnection().createChannel(false);
+        long deliveryTag = 0L;
+        try {
+            GetResponse getResponse = channel.basicGet(RabbitDirectConfig.DIRECT_QUEUE_0, false);
+            deliveryTag = getResponse.getEnvelope().getDeliveryTag();
+            String msg = new String(getResponse.getBody());
+            log.info(msg);
+            channel.basicAck(deliveryTag, false);
+        } catch (IOException e) {
+            try {
+                channel.basicNack(deliveryTag, false, true);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
     }
 }
